@@ -1,20 +1,9 @@
 Codes::Application.routes.draw do
 
-  get "codes/index"
-
-  get "codes/show"
-
-  get "codes/new"
-
-  get "codes/create"
-
-  get "codes/edit"
-
-  get "codes/update"
-
-  get "codes/destroy"
+  get "codes/:id/comments" => 'comments#new'
 
 	resources :codes 
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

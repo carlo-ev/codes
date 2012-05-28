@@ -1,5 +1,5 @@
 <p>
-	<a class="btn btn-primary" href="<%= new_code_path %>">Submit New Code</a>
+	<a class="btn btn-primary" href="#{<%= new_code_path %>}">Submit New Code</a>
 </p> 
 <h2>All Submitted Codes</h2>
 <ul>

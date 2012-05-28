@@ -1,6 +1,6 @@
 class Code < ActiveRecord::Base
   attr_accessible :content, :description, :title
-
+	has_many :comments
 	validates_presence_of :content, :description, :title
 	validates_uniqueness_of :title
 
@@ -8,6 +8,7 @@ class Code < ActiveRecord::Base
 
 	private 
 	def clean_values
-		attribute_names.each{|val| val.strip! unless val.nil? }
+		self.description.strip!
+		self.title.strip!
 	end
 end

@@ -1,5 +1,7 @@
 Codes::Application.routes.draw do
 
+  post "codes/:id" => 'comments#new'
+
 	resources :codes 
 
   # The priority is based upon order of creation:
