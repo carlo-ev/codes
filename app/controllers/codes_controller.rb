@@ -17,7 +17,7 @@ class CodesController < ApplicationController
 	if @code.save
 		redirect_to @code
 	else
-		redirect_to codes_path
+		render :new
 	end
   end
 
@@ -35,7 +35,7 @@ class CodesController < ApplicationController
   end
 
   def destroy
-	Code.find(params[:id].try(:delete))
+	Code.find(params[:id]).try(:delete)
 	redirect_to codes_path
   end
 end

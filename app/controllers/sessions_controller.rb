@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create 
-	user = login(params[:username],params[:password])
+	user = login(params[:email],params[:password])
 	if user 
 		redirect_back_or_to codes_path, :notice => "Logged in!"
 	else
@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
   end 
 
   def destroy
-	logout
+	logout()
 	redirect_to codes_path, :notice => "Logged out!"
   end	
 
