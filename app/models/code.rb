@@ -1,5 +1,6 @@
 class Code < ActiveRecord::Base
   attr_accessible :content, :description, :title
+	belongs_to :user
 	has_many :comments
 	validates_presence_of :content, :description, :title
 	validates_uniqueness_of :title

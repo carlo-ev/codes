@@ -1,11 +1,11 @@
 <p>
-	<a class="btn btn-primary" href="#{<%= new_code_path %>}">Submit New Code</a>
+	<a class="btn btn-primary" href="<%= new_code_path %>">Submit New Code</a>
 </p> 
 <h2>All Submitted Codes</h2>
 <ul>
 	<% @codes.each do |cod| %>
 		<li>
-			<h3><%= link_to cod.title, cod %> by not implemented </h3>
+			<h3><%= link_to cod.title, cod %> by <%= cod.user.username%> </h3>
 			<p><%= cod.description %></p>
 		</li>
 	<% end %>

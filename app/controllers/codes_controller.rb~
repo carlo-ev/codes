@@ -15,6 +15,8 @@ class CodesController < ApplicationController
 	@code = Code.new(params[:code])
 	if @code.save
 		redirect_to @code
+	else
+		redirect_to codes_path
 	end
   end
 
@@ -32,7 +34,7 @@ class CodesController < ApplicationController
   end
 
   def destroy
-	Task.find(params[:id].try(:delete))
+	Code.find(params[:id].try(:delete))
 	redirect_to codes_path
   end
 end

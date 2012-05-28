@@ -1,6 +1,11 @@
 Codes::Application.routes.draw do
 
-  get "codes/:id/comments" => 'comments#new'
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+
+  get "signup" => "users#new", :as => "signup"
+
+  post "codes/:id" => 'comments#new'
 
 	resources :codes 
 

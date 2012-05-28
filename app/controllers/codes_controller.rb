@@ -1,4 +1,5 @@
 class CodesController < ApplicationController
+	before_filter :require_login, :only => :new
   def index
 	@codes = Code.all
   end
@@ -34,7 +35,7 @@ class CodesController < ApplicationController
   end
 
   def destroy
-	Task.find(params[:id].try(:delete))
+	Code.find(params[:id].try(:delete))
 	redirect_to codes_path
   end
 end

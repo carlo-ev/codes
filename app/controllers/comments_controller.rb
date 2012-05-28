@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+	before_filter :require_login, :only => :new
   def new
 	@comment = Comment.new(params[:comment])
 	@comment.code_id = params[:id]

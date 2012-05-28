@@ -5,7 +5,7 @@
 <ul>
 	<% @codes.each do |cod| %>
 		<li>
-			<h3><%= link_to cod.title, cod %> by not implemented </h3>
+			<h3><%= link_to cod.title, cod %> by <%= cod.user.username %> </h3>
 			<p><%= cod.description %></p>
 		</li>
 	<% end %>
