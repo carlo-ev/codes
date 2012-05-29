@@ -6,6 +6,8 @@ Codes::Application.routes.draw do
   get "signup" => "users#new", :as => "signup"
 
   post "codes/:id" => 'comments#new'
+	
+	root to: "codes#index"
 
 	resources :codes 
 	resources :sessions

@@ -5,10 +5,14 @@
 <ul>
 	<% @codes.each do |cod| %>
 		<li>
-			<h3><%= link_to cod.title, cod %> by <%= User.find(cod.user_id).username%></h3>
+			<h3><%= link_to cod.title, cod %> by <%= User.find(cod.user_id).username if current_user%></h3>
 			<p><%= cod.description %></p>
+		<% if current_user %>
+			<% if cod.user_id == current_user.id %>
 			<%= link_to "Delete", cod, :method => :delete, :confirm => "Are you sure? D:" %>
 			<%= link_to "Edit", edit_code_path(id: cod.id) %>
+			<% end %>
+		<% end %>
 		</li>
 	<% end %>
 </ul>

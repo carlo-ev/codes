@@ -8,6 +8,8 @@ Codes::Application.routes.draw do
   post "codes/:id" => 'comments#new'
 
 	resources :codes 
+	resources :sessions
+	resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

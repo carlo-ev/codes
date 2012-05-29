@@ -2,7 +2,7 @@
 	<%= @code.title %>
 </h2>
 
-<h3>Created by: not implemented</h3>
+<h3>Created by: <%= User.find(@code.user_id).username if @code.user_id %></h3>
 
 <p>
 	<%= @code.description %>
@@ -22,12 +22,13 @@
 			<%= com.text_area :content %>
 		</div>
 		<div class="actions"><%= com.submit %></div>
+		<% end %>
 	</div>
 <% end %>
 <ul id="comment_list">
 	<% @code.comments.each do |sec| %>
 		<li>
-			<h4><em>User.find(@code.user_id).username</em> wrote <%= time_ago_in_words(sec.created_at) %></h4>
+			<h4><em><%= User.find(@code.user_id).username if @code.user_id %></em> wrote <%= time_ago_in_words(sec.created_at) %></h4>
 			<p><%= sec.content %></p>
 		</li>
 	<%end%>
