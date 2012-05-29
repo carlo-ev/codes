@@ -5,7 +5,7 @@
 <ul>
 	<% @codes.each do |cod| %>
 		<li>
-			<h3><%= link_to cod.title, cod %> by <%= %></h3>
+			<h3><%= link_to cod.title, cod %> by <%= User.find(cod.user_id).username%></h3>
 			<p><%= cod.description %></p>
 			<%= link_to "Delete", cod, :method => :delete, :confirm => "Are you sure? D:" %>
 			<%= link_to "Edit", edit_code_path(id: cod.id) %>

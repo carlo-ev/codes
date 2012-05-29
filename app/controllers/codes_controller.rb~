@@ -17,7 +17,7 @@ class CodesController < ApplicationController
 	if @code.save
 		redirect_to @code
 	else
-		redirect_to codes_path
+		render :new
 	end
   end
 

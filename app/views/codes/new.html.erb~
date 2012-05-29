@@ -4,4 +4,4 @@
 
 <%= render 'form' %>
 
-<%= link_to "Back", code_path %>
+<a class="btn" href="<%= codes_path %>">

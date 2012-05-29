@@ -2,7 +2,7 @@
 	<%= @code.title %>
 </h2>
 
-<h3>Created by: not implemented</h3>
+<h3>Created by: <%= User.find(@code.user_id).username %></h3>
 
 <p>
 	<%= @code.description %>
@@ -13,21 +13,21 @@
 
 <h3>Comments:</h3>
 
-<div class="well">
-	<form id="new_comment" class="simple_form form_horizontal new_comment" novalidate="novalidate" method="post" action="<%= @code %>/comments" accept-charset="UTF-8">
-		<div class="control-group text optional">
-			<label class="text optional control-label" for="comment_content">Add a new commnet</label>
-			<div class="controls">
-				<textarea id="comment_content" class="text optional" rows="4" name="comment[content]" cols="10"></textarea>
-			</div>
+<%if current_ser %>
+	<div class="well">
+	
+		<%= form_for Comment.new do |com| %>
+		<div class="field">
+			<%= com.label :content %>
+			<%= com.text_area :content %>
 		</div>
-		<input class="btn btn-success" type="submit" value="comment" name="commit">
-	</form> 
-</div>
+		<div class="actions"><%= com.submit %></div>
+	</div>
+<% end %>
 <ul id="comment_list">
 	<% @code.comments.each do |sec| %>
 		<li>
-			<h4><em>User not implemented yet</em> wrote <%= time_ago_in_words(sec.created_at) %></h4>
+			<h4><em>User.find(@code.user_id).username</em> wrote <%= time_ago_in_words(sec.created_at) %></h4>
 			<p><%= sec.content %></p>
 		</li>
 	<%end%>

@@ -1,5 +1,16 @@
 <%= form_for @user do |u| %>
 	
+	<% if @user.errors.any? %>
+    <div class="error_messages">
+      	<h2>Form is invalid</h2>
+      		<ul>
+        <% for message in @user.errors.full_messages %>
+          	<li><%= message %></li>
+       	 <% end %>
+      		</ul>
+    	</div>
+ 	 <% end %>
+
 	<div class="field">
 		<%= u.label :username %>
 		<%= u.text_field :username %>

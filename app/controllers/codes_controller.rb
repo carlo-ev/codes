@@ -14,6 +14,7 @@ class CodesController < ApplicationController
 
   def create
 	@code = Code.new(params[:code])
+	@code.user_id = current_user.id
 	if @code.save
 		redirect_to @code
 	else

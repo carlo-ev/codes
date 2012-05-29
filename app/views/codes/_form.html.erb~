@@ -1,7 +1,7 @@
 <%= form_for @code do |f| %>
 	<p>
 		<%= f.label :title%>
-		<%= f.text_field :priority %>
+		<%= f.text_field :title %>
 	</p>
 	<p>
 		<%= f.label :description %>
