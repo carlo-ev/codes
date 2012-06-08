@@ -28,7 +28,7 @@
 <ul id="comment_list">
 	<% @code.comments.each do |sec| %>
 		<li>
-			<h4><em><%= User.find(@code.user_id).username if @code.user_id %></em> wrote <%= time_ago_in_words(sec.created_at) %></h4>
+			<h4><em><%= sec.user.username if sec.user %></em> wrote <%= time_ago_in_words(sec.created_at) %></h4>
 			<p><%= sec.content %></p>
 		</li>
 	<%end%>

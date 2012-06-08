@@ -10,5 +10,5 @@ class User < ActiveRecord::Base
 	validates_presence_of :email, :username
 	validates_uniqueness_of :email, :username
 
-	has_many :codes
+	has_many :codes, :comments
 end

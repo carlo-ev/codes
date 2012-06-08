@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
  	authenticates_with_sorcery!
 	
-	attr_accessible :email, :username, :password #,:password_confirmation
+	attr_accessor :password
+	attr_accessible :email, :username #, :password ,:password_confirmation
 	
 	#validates_confirmation_of :password
 	validates_presence_of :password, :on => :create
